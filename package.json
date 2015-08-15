@@ -1,0 +1,22 @@
+{
+  "name": "cooking-wiki",
+  "version": "0.0.1",
+  "description": "A wiki engine for all things cooking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pppetrov/cooking-wiki.git"
+  },
+  "keywords": [
+    "wiki"
+  ],
+  "author": "Peter Petrov",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/pppetrov/cooking-wiki/issues"
+  },
+  "homepage": "https://github.com/pppetrov/cooking-wiki#readme"
+}
