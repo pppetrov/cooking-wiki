@@ -20,7 +20,6 @@
   },
     "homepage": "https://github.com/pppetrov/cooking-wiki#readme",
     "dependencies": {
-	"marked": "latest",
 	"markdown": "latest",
 	"express": "latest",
 	"ejs": "latest",
