@@ -15,17 +15,17 @@
   ],
   "author": "Peter Petrov",
   "license": "GPL-2.0",
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/pppetrov/cooking-wiki/issues"
   },
-    "homepage": "https://github.com/pppetrov/cooking-wiki#readme",
-    "dependencies": {
-	"markdown": "latest",
-	"express": "latest",
-	"ejs": "latest",
-	"express-favicon": "1.0.0",
-	"body-parser": "latest",
-	"method-override": "latest",
-	"sqlite3": "latest"
-    }
+  "homepage": "https://github.com/pppetrov/cooking-wiki#readme",
+  "dependencies": {
+    "markdown": "latest",
+    "express": "latest",
+    "ejs": "latest",
+    "express-favicon": "1.0.0",
+    "body-parser": "latest",
+    "method-override": "latest",
+    "sqlite3": "latest"
+  }
 }
