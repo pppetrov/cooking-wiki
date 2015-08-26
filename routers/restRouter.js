@@ -33,6 +33,11 @@ router.get("/namespace/:namespace_id/pages", c.showPages);
 
 router.get("/namespace/:namespace_id/pages/new", c.showNewPageForm);
 
-router.post("/namespace/:namespace_id/pages", c.createNewPage);
+router.post("/namespace/:namespace_id/pages", c.createNewPage, function(req, res, err) {
+    res.redirect("/");
+});
+
+router.get("/namespace/:namespace_id/pages/:page_id", c.showPage);
+
 
 module.exports = router;

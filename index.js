@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 // middleware
 // app.use(favicon(__dirname + '/public/images/favicon.png')); 
 
-app.listen(3000, function() {
+app.listen(4000, function() {
     console.log("I'm listening");
 });
 

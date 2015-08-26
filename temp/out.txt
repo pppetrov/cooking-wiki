@@ -1,0 +1,48 @@
+markdown:
+#Dutch Baby
+
+What what, this dutch baby is off the hookaspodkapod
+
+weofjwoiejf
+woiefoi
+
+*Hey this is bold*
+
+##Ingredients
+* 3 [Egg]s
+* 1/2 [cup]s [Flour]
+* 3/4 [cup]s [Milk]
+* 1/4 [teaspoon]s [Salt]
+* 1/4 [teaspoon]s [Vanilla]
+* 3 [tablespoon]s [Clarified Butter]
+
+##Directions
+* Mix [Egg]s, [Flour], [Salt], [Vanilla], [Milk] in a blender
+* Heat [Clarified Butter] in a cast iron skillet over high heat
+* Pour mixture in pan and put in a 400 oven
+[something]
+
+Enjoy!
+
+[something]: prettygood.com
+
+html:
+<h1>Dutch Baby</h1>
+
+<p>What what, this dutch baby is off the hookaspodkapod</p>
+
+<p>weofjwoiejf
+woiefoi</p>
+
+<p><em>Hey this is bold</em></p>
+
+<h2>Ingredients</h2>
+
+<ul><li>3 [Egg]s</li><li>1/2 [cup]s [Flour]</li><li>3/4 [cup]s [Milk]</li><li>1/4 [teaspoon]s [Salt]</li><li>1/4 [teaspoon]s [Vanilla]</li><li>3 [tablespoon]s [Clarified Butter]</li></ul>
+
+<h2>Directions</h2>
+
+<ul><li>Mix [Egg]s, [Flour], [Salt], [Vanilla], [Milk] in a blender</li><li>Heat [Clarified Butter] in a cast iron skillet over high heat</li><li>Pour mixture in pan and put in a 400 oven
+<a href="prettygood.com">something</a></li></ul>
+
+<p>Enjoy!</p>
