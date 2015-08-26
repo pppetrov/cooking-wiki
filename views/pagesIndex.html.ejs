@@ -12,7 +12,7 @@
       <div id="pages">
           <ul>
               <% pages.forEach(function(page) { -%>
-                  <li> <a href="/namespace/<%=page.page_namespace_id%>/pages/<%=page.page_id%>"><%=page.page_title.replace("_", " ")%></a> </li>
+                  <li> <a href="/page/<%=page.page_id%>"><%=page.page_title.replace("_", " ")%></a> </li>
               <% }); -%>
           </ul>
       </div>

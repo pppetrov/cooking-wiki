@@ -37,7 +37,6 @@ router.post("/namespace/:namespace_id/pages", c.createNewPage, function(req, res
     res.redirect("/");
 });
 
-router.get("/namespace/:namespace_id/pages/:page_id", c.showPage);
-
+router.get("/page/:page_id", c.showPage);
 
 module.exports = router;
