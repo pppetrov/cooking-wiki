@@ -74,8 +74,13 @@ exports.createNewPage = function createNewPage(req, res, next) {
 
 exports.showPage = function showPage(req, res, err) {
     db.get("SELECT text_html, max(rev_timestamp) FROM (SELECT texts.text_html, revs.rev_timestamp FROM pages INNER JOIN revs ON pages.page_id=revs.rev_page_id INNER JOIN texts ON revs.rev_text_id=texts.text_id WHERE pages.page_id=?)", req.params.page_id, function(err, row) {
-        console.log(typeof row.text_html);
-        res.render("show.html.ejs", {html: row.text_html});
+        res.render("show.html.ejs", {html: row.text_html, page_id: req.params.page_id});
     });
 };
 
+exports.showEditPage = function showEditPage(req, res, err) {
+    db.get("SELECT text_markdown, max(rev_timestamp) FROM (SELECT texts.text_markdown, revs.rev_timestamp FROM pages INNER JOIN revs ON pages.page_id=revs.rev_page_id INNER JOIN texts ON revs.rev_text_id=texts.text_id WHERE pages.page_id=?)", req.params.page_id, function(err, row) {
+        console.log(typeof row.text_html);
+        res.render("edit.html.ejs", {markdown: row.text_markdown, page_id: req.params.page_id});
+    });
+};

@@ -1,0 +1,18 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <% include _head.html.ejs  %>
+  </head>
+
+  <body>
+
+      <% include _topbar.html.ejs %>
+      <% include _sidebar.html.ejs %>
+
+      <form method="POST" action="/page/<%=page_id%>?_method=PUT">
+          <textarea id="input" name="markdown" rows="30" cols="100" value=""><%-markdown%></textarea>
+          <input type="Submit" value="Edit"/>
+      </form>
+      
+  </body>
+</html>

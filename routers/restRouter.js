@@ -39,4 +39,6 @@ router.post("/namespace/:namespace_id/pages", c.createNewPage, function(req, res
 
 router.get("/page/:page_id", c.showPage);
 
+router.get("/page/:page_id/edit", c.showEditPage);
+
 module.exports = router;
