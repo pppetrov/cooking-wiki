@@ -3,7 +3,7 @@
 /*global require module*/
 
 var express = require("express");
-var ejs = require("ejs");
+
 var bodyParser = require('body-parser');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: false});
 var methodOverride = require('method-override');
@@ -18,7 +18,6 @@ router.use(methodOverride('_method'));
 router.use(express.static('public'));
 
 
-
 router.get("/", function(req, res) {
     console.log(req.route.stack[0].method + ": " + req.route.path);
     res.redirect("/index");
@@ -26,18 +25,14 @@ router.get("/", function(req, res) {
 
 router.get("/index", function(req, res) {
     console.log(req.route.stack[0].method + ": " + req.route.path);
+    res.render("index.html.ejs");
 });
 
 
-router.get("/:namespace/:title", c.toRestFull, function(req, res) {
-    console.log(req.route.stack[0].method + ": " + req.route.path);
-    console.log(req.params);
-});
+router.get("/namespace/:namespace_id/pages", c.showPages);
 
-router.get("/namespace/:namespace_id/page/:page_id", function(req, res) {
-    console.log(req.route.stack[0].method + ": " + req.route.path);
-    console.log(req.params);
-});
+router.get("/namespace/:namespace_id/pages/new", c.showNewPageForm);
 
+router.post("/namespace/:namespace_id/pages", c.createNewPage);
 
 module.exports = router;

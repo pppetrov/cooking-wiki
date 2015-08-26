@@ -13,3 +13,18 @@ exports.toRestFull = function toRestFull(req, res, next) {
     }
 };
 
+exports.showPages = function showPages(req, res, next) {
+    db.all("SELECT page_title FROM pages WHERE page_namespace_id=?", req.params.namespace_id, function(err, rows) {
+        res.render("pagesIndex.html.ejs", {pages: rows});
+        next();
+    });
+};
+
+exports.showNewPageForm = function showNewPageForm(req, res, next) {
+    res.render("newPage.html.ejs", req.params);
+};
+
+exports.createNewPage = function createNewPage(req, res, next) {
+    console.log(req.body);
+};
+

@@ -3,6 +3,7 @@
 /*global require*/
 
 var express = require("express");
+var ejs = require("ejs");
 var router = require("./routers/router");
 var restRouter = require("./routers/restRouter");
 
@@ -18,7 +19,3 @@ app.listen(3000, function() {
 });
 
 app.use("/", restRouter);
-
-
-
-
