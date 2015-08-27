@@ -41,4 +41,10 @@ router.get("/page/:page_id", c.showPage);
 
 router.get("/page/:page_id/edit", c.showEditPage);
 
+router.put("/page/:page_id", c.updatePage, function(req, res, err) {
+    res.redirect("/");
+});
+
+// router.delete("/page/:page_id", c.deletePage);
+
 module.exports = router;

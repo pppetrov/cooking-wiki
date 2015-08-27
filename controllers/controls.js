@@ -40,7 +40,7 @@ exports.createNewPage = function createNewPage(req, res, next) {
     var parsed = parseMD(markdown);
 
     function insertRevision(textID, pageID){
-        db.run("INSERT INTO revs (rev_page_id, rev_text_id) VALUES (?, ?)", textID, pageID, function(err){
+        db.run("INSERT INTO revs (rev_page_id, rev_text_id) VALUES (?, ?)", pageID, textID, function(err){
             if (err) {
                 console.log(err);
             } else {
@@ -72,15 +72,49 @@ exports.createNewPage = function createNewPage(req, res, next) {
     insertText();    
 };
 
-exports.showPage = function showPage(req, res, err) {
+exports.showPage = function showPage(req, res, next) {
     db.get("SELECT text_html, max(rev_timestamp) FROM (SELECT texts.text_html, revs.rev_timestamp FROM pages INNER JOIN revs ON pages.page_id=revs.rev_page_id INNER JOIN texts ON revs.rev_text_id=texts.text_id WHERE pages.page_id=?)", req.params.page_id, function(err, row) {
         res.render("show.html.ejs", {html: row.text_html, page_id: req.params.page_id});
     });
 };
 
-exports.showEditPage = function showEditPage(req, res, err) {
+exports.showEditPage = function showEditPage(req, res, next) {
     db.get("SELECT text_markdown, max(rev_timestamp) FROM (SELECT texts.text_markdown, revs.rev_timestamp FROM pages INNER JOIN revs ON pages.page_id=revs.rev_page_id INNER JOIN texts ON revs.rev_text_id=texts.text_id WHERE pages.page_id=?)", req.params.page_id, function(err, row) {
-        console.log(typeof row.text_html);
-        res.render("edit.html.ejs", {markdown: row.text_markdown, page_id: req.params.page_id});
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.render("edit.html.ejs", {markdown: row.text_markdown, page_id: req.params.page_id});
+        }
     });
+};
+
+exports.updatePage = function updatePage(req, res, next) {
+    var markdown = req.body.markdown;
+    var parsed = parseMD(markdown);
+    console.log(markdown);
+    console.log(parsed);
+    
+    function insertRevision(textID){
+        db.run("INSERT INTO revs (rev_page_id, rev_text_id) VALUES (?, ?)", req.params.page_id, textID, function(err){
+            if (err) {
+                console.log(err);
+            } else {
+                next();
+            }
+        });
+    }
+
+    function insertText() {
+        db.run("INSERT INTO texts (text_markdown, text_html) VALUES (?, ?)", parsed.markdown, parsed.html, function(err){
+            if (err) {
+                console.log(err);
+            } else {
+                insertRevision(this.lastID);
+            }
+        });
+    }
+
+    insertText();
+    
 };
