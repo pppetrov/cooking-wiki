@@ -26,7 +26,7 @@ exports.toRestFull = function toRestFull(req, res, next) {
 
 exports.showPages = function showPages(req, res, next) {
     db.all("SELECT * FROM pages WHERE page_namespace_id=?", req.params.namespace_id, function(err, rows) {
-        res.render("pagesIndex.html.ejs", {pages: rows});
+        res.render("pagesIndex.html.ejs", {pages: rows, namespace_id: req.params.namespace_id});
         next();
     });
 };
