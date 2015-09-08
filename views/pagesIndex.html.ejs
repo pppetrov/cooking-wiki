@@ -1,22 +1,23 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
   <head>
     <% include _head.html.ejs  %>
   </head>
 
   <body>
-
+      <div class="container">
       <% include _topbar.html.ejs %>
       <% include _sidebar.html.ejs %>
 
-      <a href="/namespace/<%=namespace_id%>/pages/new">Create a new page</a>
+
       <div id="pages">
+          <a href="/namespace/<%=namespace_id%>/pages/new">Create a new page</a>
           <ul>
               <% pages.forEach(function(page) { -%>
                   <li> <a href="/page/<%=page.page_id%>"><%=page.page_title.replace("_", " ")%></a> </li>
               <% }); -%>
           </ul>
       </div>
-    
+      </div>
   </body>
 </html>
